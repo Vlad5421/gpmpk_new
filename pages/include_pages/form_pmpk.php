@@ -5,7 +5,7 @@
 	</div>
 	
 	<!-- РАЗДЕЛ ЛИЧНЫХ ДАННЫХ -->
-
+<div class="zapis_pmpk_fildset">
 	<fieldset style="background-color: #f9f9f9">
 		<legend >Личная информация:</legend>
 		<p>
@@ -43,9 +43,9 @@
 		<label for="namepredpmpk">Наименование ПМПК, которую проходил ребенок (если было): </label><br><input type="text" name="namepredpmpk" autocomplete=off >
 		</p>
 	</fieldset>
-
+</div>
 	<!-- РАЗДЕЛ ЗАГРУЗКИ ФАЙЛОВ -->
-
+<div class="zapis_pmpk_fildset">
 	<fieldset style="background-color: #f9f9f9">
 		<legend>Отсканированные документы:</legend>
 		<span class="form_files">Загрузите сканы или фото документов,  по одному в каждое поле.
@@ -196,7 +196,9 @@
 		дополнительную информацию о ребенке.<br></span>
 		<span class="form_end_end">Запись на проведение обследования ГПМПК осуществляется при подаче полного пакета документов.</span>
 	</fieldset>
+</div>
 </form>
+
 <script type="text/javascript">
 	
 	document.getElementById('zayav').addEventListener('change', selectZayav, false);

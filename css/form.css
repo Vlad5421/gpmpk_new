@@ -1,6 +1,6 @@
 
 /*Обнуление*/
-/* *{
+ *{
   padding: 0;
   margin: 0;
   border: 0;
@@ -36,7 +36,7 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;} */
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /*--------------------*/
 /*для меню*/
 
@@ -70,7 +70,8 @@ a.button15:hover {
 
 
  /*свои стили*/
-fieldset{
+
+.zapis_pmpk_fildset fieldset{
   border-radius: 10px;
   border: 1px solid;
   border-color: #8a8a8a;
@@ -101,13 +102,9 @@ input::-webkit-file-upload-button{
 input::-webkit-file-upload-button:hover{
   box-shadow: 0 0 2px #ccc;
 }
-legend{
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
 hr{
   border: 1px solid;
+  color: #8a8a8a;
 }
 b{
   font-size: 30px;
