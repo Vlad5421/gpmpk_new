@@ -8,7 +8,7 @@
 	min-width: 100%;
 }
 .menu_full {
-	position: fixed;
+	/*position: fixed;*/
 	z-index: 1;
 	min-height: 45px;
 	width: 100%;

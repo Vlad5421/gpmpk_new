@@ -10,7 +10,7 @@ session_start();
 $address = explode('?', $_POST['page_request']);
 $login = $_POST['login'];
 
-$query = "SELECT `id`, `pass` FROM `parrents` WHERE `email` = '$login'";
+$query = "SELECT `id`, `pass`, `number` FROM `parrents` WHERE `email` = '$login'";
 $sql = mysqli_query($db, $query);
 echo "<br>Вывод дата<br>";
 if (mysqli_num_rows($sql) == '0') {
@@ -22,6 +22,7 @@ else {
     $_SESSION['auth'] = 'on';
     $_SESSION['parrent_id'] = $res['id'];
     $_SESSION['login'] = $_POST['login'];
+    $_SESSION['number'] = $_POST['number'];
     $address = $address[0];
   }
   else {
