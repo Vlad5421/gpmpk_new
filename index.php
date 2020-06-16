@@ -4,8 +4,8 @@ session_start();
 function print_arr($arr){
 	echo '<pre>' . print_r($arr, true) . '</pre>';
 }
-print_arr($_GET);
-print_arr($_SESSION);
+// print_arr($_GET);
+// print_arr($_SESSION);
 require_once('routers/self_rout.php');
 ?>
 
@@ -18,7 +18,9 @@ require_once('routers/self_rout.php');
 	<div class="big_content">
 <?php include_once("include/left_border.php") ?>
 		<!-- Блок содержимого центрального блока -->
+		<div class="content">
 <?php include_once($page['page_uri']) ?>
+		</div>
 		<!-- Конец блока содержимого центрального блока -->
 <?php include_once("include/right_border.php") ?>
 	</div>

@@ -1,5 +1,4 @@
-<div class="content">
-<!-- Блок содержимого центрального блока -->
+	<!-- Блок содержимого центрального блока -->
 	<div class="telo">
 		<span class="hed1">Подача документов для записи на ПМПК<br>
 			<span style="font-size: 27px; color:blue;">On-Line<br></span>
@@ -62,6 +61,9 @@ require_once 'include_pages/form_pmpk.php'
 <?php endif; ?>
 
 <?php require_once('include_pages/auth_form.php');?>
+<br><hr><br>
+	<span style="margin-bottom: 10px;"><b>Если вы подаете документы ОНЛАЙН впервые, то нужно зарегистрироваться</b></span><br>
+	<?php require_once('include_pages/reg_form.php');?>
 <?php endif; ?>
 <?php
 		// echo "<br>Сесссии<br>";
@@ -73,5 +75,5 @@ require_once 'include_pages/form_pmpk.php'
 		?>
 
 	</div>
-</div>
+
 <!-- Конец блока содержимого центрального блока -->

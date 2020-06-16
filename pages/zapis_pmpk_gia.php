@@ -1,5 +1,5 @@
 <!-- Блок содержимого центрального блока -->
-		<div class="content">
+
 			<div class="telo">
 					<span class="hed1">Подача документов для записи на ПМПК ГИА!!!<br>
 						<span style="font-size: 27px; color:blue;">On-Line<br></span>
@@ -16,5 +16,5 @@
 
 				</div>
 			</div>
-		</div>
+
 <!-- Конец блока содержимого центрального блока -->

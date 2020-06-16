@@ -20,7 +20,6 @@ function get_services(){
 $g_services = get_services();
 ?>
 
-<div class="content">
 	<div class="telo">
 			<span class="hed1">Проект "Поддержка семей, имеющих детей"<br>
 				<span style="font-size: 27px">КОНСУЛЬТАЦИИ   ДЛЯ   РОДИТЕЛЕЙ <br>
@@ -48,6 +47,4 @@ $g_services = get_services();
 			<?php endforeach; ?>
 
 		</div>
-	</div>
-</div>
 <!-- Конец блока содержимого центрального блока -->

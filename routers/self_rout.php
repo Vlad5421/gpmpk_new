@@ -17,6 +17,10 @@ elseif ($page['uri'] == 'zapis_pmpk_gia') {
   $page['page_title'] = 'Запись на ПМПК ГИА';
   $page['page_uri'] = 'pages/zapis_pmpk_gia.php';
 }
+elseif ($page['uri'] == 'parrents_acc') {
+  $page['page_title'] = 'Профиль родителя';
+  $page['page_uri'] = 'pages/parrents_acc.php';
+}
 // elseif ($page['uri'] == 'do_zapis_pmpk') {
 //   $page['page_title'] = 'Запись на ПМПК ГИА';
 //   $page['page_uri'] = 'pages/do/do_zapis_pmpk.php';
