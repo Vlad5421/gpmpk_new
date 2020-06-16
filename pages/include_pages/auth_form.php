@@ -1,7 +1,7 @@
 <form style="width: 400px;" action="pages/do/login.php" method="post">
   <fieldset>
     <legend>Авторизуйтесь</legend>
-    <input type="hidden" name="page_request" id="page_request" class="form-control" value="<?="$_SERVER[REQUEST_URI]"?>" readonly>
+    <input type="hidden" name="page_request" id="page_request" class="form-control" value="<?=$_SERVER['REQUEST_URI']?>" readonly>
     <div class="form-group">
       <label for="exampleInputEmail1">Введите логин (ваш Email):</label>
       <input type="email" name="login" class="form-control" id="login" aria-describedby="Login" placeholder="Введите email" required>

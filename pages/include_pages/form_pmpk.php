@@ -1,45 +1,64 @@
-<form method="post" action="pages/do/zapis_card.php" enctype="multipart/form-data">
-	<div class="form_head_div">
-		<span class=form_head>On-line подача заявления и документов на ПМПК</span>
-	<span class="form_head_2">Все данные и документы передаются в диспетчерскую службу по защищенному каналу.</span> 
-	</div>
-	
+<form method="post" action="pages/do/do_zapis_pmpk.php" enctype="multipart/form-data">
 	<!-- РАЗДЕЛ ЛИЧНЫХ ДАННЫХ -->
 <div class="zapis_pmpk_fildset">
 	<fieldset style="background-color: #f9f9f9">
 		<legend >Личная информация:</legend>
 		<p>
-		<label for="fiorod">Фамилия, имя, отчество родителя/законного представителя ребенка, подающего заявление: </label><br><input size="50" type="text" name="fiorod" autocomplete=off required>
+		<label for="fiorod">Фамилия, имя, отчество родителя/законного представителя ребенка, подающего заявление: </label>
+		<br>
+		<input size="50" type="text" name="fiorod" autocomplete=off required value="<?=$_SESSION['fio']?>" disabled>
+		</p>
+
+		<p>
+		<label for="mail">Электронная почта: </label>
+		<br>
+		<input size="50" type="email" name="email" autocomplete=off required value="<?=$_SESSION['login'] ?>" disabled>
+		</p>
+
+		<p>
+		<label for="number">Номер телефона 11 цифр (89ххххххххх): </label>
+		<br>
+		<input type="text" name="number" autocomplete=off value="<?=$_SESSION['number'] ?>" disabled>
 		</p>
 		<p>
-		<label for="mail">Электронная почта: </label><br><input size="50" type="email" name="mail" autocomplete=off required value="<?=$_SESSION['login'] ?>">
+		<label for="organnapr">Наименование организации, направившей ребенка на ПМПК: </label>
+		<br>
+		<input size="50" type="text" name="organnapr" autocomplete=off required>
 		</p>
 		<p>
-		<label for="number">Номер телефона 11 цифр (89ххххххххх): </label><br><input type="text" name="number" autocomplete=off pattern="[0-9]{11}" required>
+		<label for="prich">Причина направления на ПМПК: </label>
+		<br>
+		<input size="50" type="text" name="prich" autocomplete=off required>
 		</p>
 		<p>
-		<label for="organnapr">Наименование организации, направившей ребенка на ПМПК: </label><br><input size="50" type="text" name="organnapr" autocomplete=off required>
+		<label for="fioreb">Фамилия, имя, отчество ребенка: </label>
+		<br>
+		<input size="50" type="text" name="fioreb" autocomplete=off required>
 		</p>
 		<p>
-		<label for="prich">Причина направления на ПМПК: </label><br><input size="50" type="text" name="prich" autocomplete=off required>
+		<label for="dateroj">Дата рождения ребенка: </label>
+		<br>
+		<input type="date" name="dateroj" autocomplete=off required>
 		</p>
 		<p>
-		<label for="fioreb">Фамилия, имя, отчество ребенка: </label><br><input size="50" type="text" name="fioreb" autocomplete=off required>
+		<label for="school">Наименование образовательной организации, в которой обучается ребенок: </label>
+		<br>
+		<input size="50" type="text" name="school" autocomplete=off required>
 		</p>
 		<p>
-		<label for="dateroj">Дата рождения ребенка: </label><br><input type="date" name="dateroj" autocomplete=off required>
+		<label for="class">Класс/группа: </label>
+		<br>
+		<input size="50" type="text" name="class" autocomplete=off required>
 		</p>
 		<p>
-		<label for="shkola">Наименование образовательной организации, в которой обучается ребенок: </label><br><input size="50" type="text" name="shkola" autocomplete=off required>
+		<label for="datapredpmpk">Дата предыдущего прохождения ПМПК (если было): </label>
+		<br>
+		<input type="date" name="datapredpmpk" autocomplete=off>
 		</p>
 		<p>
-		<label for="class">Класс/группа: </label><br><input size="50" type="text" name="class" autocomplete=off required>
-		</p>
-		<p>
-		<label for="datapredpmpk">Дата предыдущего прохождения ПМПК (если было): </label><br><input type="date" name="datapredpmpk" autocomplete=off>
-		</p>
-		<p>
-		<label for="namepredpmpk">Наименование ПМПК, которую проходил ребенок (если было): </label><br><input size="50" type="text" name="namepredpmpk" autocomplete=off >
+		<label for="namepredpmpk">Наименование ПМПК, которую проходил ребенок (если было): </label>
+		<br>
+		<input size="50" type="text" name="namepredpmpk" autocomplete=off >
 		</p>
 	</fieldset>
 </div>
@@ -85,7 +104,7 @@ foreach ($scans as $key => $value) {
 		<br>
 		<label for="snopdreb"><b>*</b> Согласие на обработку персональных данных ребенка: </label><input type="checkbox" name="snopdreb" autocomplete=off required>
 		<p>
-		<button class="button_form" type="submit" name="send" value="test">Отправить</button>
+		<button class="button_form" type="submit" name="send">Отправить</button>
 		</p>
 		<hr>
 		<span class="form_end">При необходимости комиссия запрашивает у соответствующих органов<br>
@@ -95,6 +114,7 @@ foreach ($scans as $key => $value) {
 	</fieldset>
 </div>
 			<!--    КОНЕЦ РАЗДЕЛА ЗАГРУЗКИ ФАЙЛОВ    -->
+	<input type="hidden" name="parrent_id" id="parrent_id" class="form-control" value="<?=$_SESSION['parrent_id']?>" readonly>
 </form>
 <script>
 // массив со всеми отслеживаемыми id-шками

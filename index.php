@@ -16,11 +16,11 @@ require_once('routers/self_rout.php');
 <div class="all">
 <?php include_once("include/menu1.php") ?>
 	<div class="big_content">
-		<?php include_once("include/left_border.php") ?>
+<?php include_once("include/left_border.php") ?>
 		<!-- Блок содержимого центрального блока -->
 <?php include_once($page['page_uri']) ?>
 		<!-- Конец блока содержимого центрального блока -->
-		<?php include_once("include/right_border.php") ?>
+<?php include_once("include/right_border.php") ?>
 	</div>
 </div>
 </body>

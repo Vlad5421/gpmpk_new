@@ -17,12 +17,12 @@ elseif ($page['uri'] == 'zapis_pmpk_gia') {
   $page['page_title'] = 'Запись на ПМПК ГИА';
   $page['page_uri'] = 'pages/zapis_pmpk_gia.php';
 }
-// elseif ($page['uri'] == '/logout') {
-//   $page['page_title'] = 'Разлогин';
-//   $page['page_uri'] = 'pages/do/logout.php';
+// elseif ($page['uri'] == 'do_zapis_pmpk') {
+//   $page['page_title'] = 'Запись на ПМПК ГИА';
+//   $page['page_uri'] = 'pages/do/do_zapis_pmpk.php';
 // }
 else {
-  echo('Такой страницы не существует. <br><a href="/"><b>Перейти на главную страниц сайта<b></a>');
+  echo('Такой страницы не существует. <br><a href="/"><b>Перейти на главную страницу сайта<b></a>');
 }
 
 ?>

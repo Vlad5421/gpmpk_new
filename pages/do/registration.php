@@ -1,33 +1,40 @@
 <?php
-function print_arr($arr){
-	echo '<pre>' . print_r($arr, true) . '</pre>';
-}
+
 require_once('../../connect.php');
 $login = $_POST['login'];
-$query = "SELECT `id` FROM `parrents` WHERE ( `email` = $login )";
+//echo $_POST['page_request'].'<br>';
 $address = explode('?', $_POST['page_request']);
-
-if (mysqli_query($db, $query) == !false) {
-	$address = $address[0].'?doauth=on';
-}
-else {
+//echo $address[0].'<br>';
+// $query = "SELECT `id` FROM `parrents` WHERE ( `email` = $login )";
+$query = "SELECT EXISTS(SELECT 1 FROM id WHERE `email`= '$login')";
+$sql = mysqli_query($db, $query);
+//echo "<br> нум роу <br>"
+//var_dump(mysqli_num_rows($sql));
+//echo "<br>";
+if ($sql == false) {    // если запрос по ЕМАЙЛУ вернул 0 строк регистрируем нового пользователя 
   $fio = $_POST['fio'];
   $number = $_POST['number'];
   $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	$query = "INSERT INTO `parrents`(`fio`, `email`, `number`, `pass`) VALUES ('$fio', '$login', '$number', '$pass')";
-	$res = mysqli_query($db, $query);
-	if ($res == !false) $address = $address[0];
-	else {
+	$query_reg = "INSERT INTO `parrents` (`fio`, `email`, `number`, `pass`) VALUES ('$fio', '$login', '$number', '$pass')";
+	$res = mysqli_query($db, $query_reg);
+	//echo "<br> результат <br>";
+	//var_dump($res);
+	// создаем линк для блока ELSE
+	if ($res == !false) $link = $address[0]."?doauth=aftersave"; // если сохранение прошло успешно - направляем на ZAPIS_PMPK для дальнейшей авторизации
+	else { // если сохранение вернуло ошибку - значит отправляем авторизовываться с ообщением что такой логин уже есть
 		$err = mysqli_error($db);
-		echo "$err";
+		//echo "$err";
+		$link = $address[0].'?doauth=on';
 	}
 }
+else { // ИНАЧЕ если запрос по ЕМАЙЛУ вернул НЕ 0 строк - включае doauth и и делаем линк на авторизацию
+	$link = $address[0]."?doauth=on";
+}
 
-header("Location: $address");
+mysqli_close($link);
+$_SESSION['login'] = $_POST['login']; // устанавливаем в сессию указанный логин
+mysqli_close($db);
+header("Location: $link"); // отправляем на итоговый ЛИНК
 
-$_SESSION['login'] = $_POST['login'];
-echo $address[0];
-print_arr($_SESSION);
-print_arr($_SERVER);
-//header("Location: $_POST[page_request]")
+
 ?>

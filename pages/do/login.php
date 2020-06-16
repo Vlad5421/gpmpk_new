@@ -3,18 +3,16 @@ function print_arr($arr){
 	echo '<pre>' . print_r($arr, true) . '</pre>';
 }
 require_once('../../connect.php');
-
 session_start();
-// print_arr($_POST);
-// print_arr($_SESSION);
+
 $address = explode('?', $_POST['page_request']);
 $login = $_POST['login'];
 
-$query = "SELECT `id`, `pass`, `number` FROM `parrents` WHERE `email` = '$login'";
+$query = "SELECT `id`, `pass`, `number`, `fio` FROM `parrents` WHERE `email` = '$login'";
 $sql = mysqli_query($db, $query);
 echo "<br>Вывод дата<br>";
 if (mysqli_num_rows($sql) == '0') {
-  $address = $address[0]."?register=on";
+  $link = $address[0]."?register=on";
 }
 else {
   $res = mysqli_fetch_assoc($sql);
@@ -22,15 +20,16 @@ else {
     $_SESSION['auth'] = 'on';
     $_SESSION['parrent_id'] = $res['id'];
     $_SESSION['login'] = $_POST['login'];
-    $_SESSION['number'] = $_POST['number'];
-    $address = $address[0];
+    $_SESSION['number'] = $res['number'];
+    $_SESSION['fio'] = $res['fio'];
+    $link = $address[0];
   }
   else {
-    $address = $address[0]."?pass=error";
+    $link = $address[0]."?pass=error";
   }
 }
-
+mysqli_close($db);
 // var_dump($address);
 // print_arr($_SESSION);
-header("Location: $address");
+header("Location: $link");
 ?>
